@@ -113,19 +113,13 @@ button:focus-visible {
   margin-left: -8px;
 }
 
-.nav-link:hover,
-.outline-link:hover,
-.footer-link:hover,
-.copy-button:hover {
-  opacity: 0.72;
-}
-
 .outline-link,
 .copy-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
+  width: max-content;
   padding: 8px 16px;
   border-radius: var(--radius-pill);
   font-size: 16px;
@@ -146,25 +140,44 @@ button:focus-visible {
   cursor: pointer;
 }
 
-.copy-label {
-  display: grid;
+.nav-link,
+.outline-link,
+.copy-button {
+  transition:
+    background-color 0.16s ease,
+    color 0.16s ease,
+    border-color 0.16s ease,
+    transform 0.12s ease;
 }
 
-.copy-email,
-.copy-done {
-  grid-area: 1 / 1;
+.nav-link img,
+.outline-link img,
+.copy-button img {
+  pointer-events: none;
 }
 
-.copy-done {
-  visibility: hidden;
+.nav-link:hover,
+.outline-link:hover {
+  background: var(--canvas);
+  color: var(--text-primary);
 }
 
-.copy-button.is-copied .copy-email {
-  visibility: hidden;
+.outline-link:hover {
+  border-color: var(--canvas);
 }
 
-.copy-button.is-copied .copy-done {
-  visibility: visible;
+.outline-link:hover img {
+  filter: invert(1);
+}
+
+.footer-link:hover {
+  opacity: 0.72;
+}
+
+.nav-link:active,
+.outline-link:active,
+.copy-button:active {
+  transform: scale(0.94);
 }
 
 .wordmark {
@@ -558,9 +571,5 @@ button:focus-visible {
     flex-wrap: wrap;
     justify-content: center;
     border-radius: 28px;
-  }
-
-  .copy-button {
-    white-space: normal;
   }
 }

@@ -44,10 +44,7 @@ export function CopyEmailButton({ email }: CopyEmailButtonProps) {
       aria-live="polite"
     >
       <img src="/icons/copy.svg" alt="" width={18} height={18} />
-      <span className="copy-label">
-        <span className="copy-email">{email}</span>
-        <span className="copy-done">Copied</span>
-      </span>
+      <span className="copy-label">{copied ? "Copied" : email}</span>
     </button>
   );
 }
